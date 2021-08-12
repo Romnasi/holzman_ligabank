@@ -8,7 +8,7 @@ const sync = require('browser-sync').create();
 
 // Styles
 
-const styles = () => gulp.src('public/source/sass/style.scss')
+const styles = () => gulp.src('src/sass/style.scss')
   .pipe(plumber())
   .pipe(sourcemap.init())
   .pipe(sass())
@@ -16,15 +16,15 @@ const styles = () => gulp.src('public/source/sass/style.scss')
     autoprefixer(),
   ]))
   .pipe(sourcemap.write('.'))
-  .pipe(gulp.dest('public/source/css'))
+  .pipe(gulp.dest('public/css'))
   .pipe(sync.stream());
 
 exports.styles = styles;
 
 
 const watcher = () => {
-  gulp.watch('public/source/sass/**/*.scss', gulp.series('styles'));
-  gulp.watch('public/source/*.html').on('change', sync.reload);
+  gulp.watch('src/sass/**/*.scss', gulp.series('styles'));
+  gulp.watch('public/*.html').on('change', sync.reload);
 };
 
 exports.default = gulp.series(

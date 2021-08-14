@@ -1,36 +1,26 @@
 .nav {
   display: flex;
   margin-left: auto;
-}
 
-.nav__list {
-  display: flex;
+  &__list {
+    display: flex;
 
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }
 
 .nav__item {
   &:last-child .nav__link {
-    margin-left: 140px;
+    margin-left: 110px;
     padding-right: 0;
-    padding-left: 30px;
+    padding-left: 60px;
   }
 
   &--login {
     position: relative;
   }
-
-  &--active {
-    & .nav__link {
-      color: $accent-color;
-    }
-  }
-}
-
-.nav__link--login:hover .nav__icon {
-  fill: $accent-color;
 }
 
 .nav__icon {
@@ -55,8 +45,21 @@
   box-sizing: border-box;
   min-height: 90px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $accent-color;
   }
-}
 
+  &:active {
+    color: $basic-grey;
+  }
+
+  &--login:hover .nav__icon,
+  &--login:focus .nav__icon {
+    fill: $accent-color;
+  }
+
+  &--login:active .nav__icon {
+    fill: $basic-grey;
+  }
+}

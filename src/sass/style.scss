@@ -5,9 +5,17 @@
 @import "global/fonts.scss";
 @import "global/variables.scss";
 @import "global/global.scss";
+@import "global/mixins.scss";
 
 // Blocks
 @import "blocks/page.scss";
 @import "blocks/header.scss";
 @import "blocks/nav.scss";
 @import "blocks/logo.scss";
+
+@import "blocks/footer.scss";
+@import "blocks/legal-address.scss";
+@import "blocks/site-links.scss";
+@import "blocks/free-short-number.scss";
+@import "blocks/free-number.scss";
+@import "blocks/social.scss";

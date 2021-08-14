@@ -1,0 +1,35 @@
+.free-short-number {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 20px;
+  padding-left: 75px;
+  padding-right: 45px;
+
+  &__number {
+    display: block;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    @include number();
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    &:active {
+      color: $basic-grey;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 3px;
+
+    @include footer-desc();
+  }
+}

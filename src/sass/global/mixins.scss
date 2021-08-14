@@ -1,0 +1,15 @@
+@mixin footer-desc () {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: $basic-grey;
+}
+
+@mixin number () {
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: $basic-black;
+}

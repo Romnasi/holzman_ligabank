@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.footer__wrapper {
+  display: grid;
+  grid-template-columns: 300px 200px 300px 200px 170px;
+}

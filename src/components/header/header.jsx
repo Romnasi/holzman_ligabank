@@ -6,7 +6,9 @@ function Header () {
   return (
     <header className='page__header header'>
       <div className='header__wrapper container'>
-        <Logo />
+        <Logo
+          block='header'
+        />
 
         <Nav />
       </div>

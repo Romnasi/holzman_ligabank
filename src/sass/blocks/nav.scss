@@ -21,6 +21,10 @@
   &--login {
     position: relative;
   }
+
+  &--active .nav__link {
+    color: $accent-color;
+  }
 }
 
 .nav__icon {

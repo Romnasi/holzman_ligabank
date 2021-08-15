@@ -1,0 +1,16 @@
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $light-background;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__logo {
+    padding-top: 25px;
+    padding-bottom: 35px;
+
+    min-height: 90px;
+  }
+}

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className='page-header__nav nav'>
+    <nav className='main-menu__nav nav'>
       <ul className='nav__list'>
         <li className='nav__item'>
           <Link to="#" className='nav__link'>Услуги</Link>

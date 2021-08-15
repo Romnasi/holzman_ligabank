@@ -1,17 +1,16 @@
 import React from 'react';
-import Logo from '../logo/logo';
-import Nav from '../nav/nav';
+import CreditPromo from '../credit-promo/credit-promo';
+import MainMenu from '../main-menu/main-menu';
 
-function Header () {
+
+function Header() {
   return (
     <header className='page__header header'>
-      <div className='header__wrapper container'>
-        <Logo
-          block='header'
-        />
 
-        <Nav />
-      </div>
+      <MainMenu />
+
+      <CreditPromo />
+
     </header>
   );
 }

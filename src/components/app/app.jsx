@@ -7,6 +7,10 @@ function App () {
   return (
     <Router>
       <Header />
+
+      <main className='page__main main'>
+      </main>
+
       <Footer />
     </Router>
   );

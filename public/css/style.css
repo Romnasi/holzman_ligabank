@@ -367,10 +367,15 @@ img {
 
 .header {
   display: flex;
+  flex-direction: column; }
+
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #f6f7ff; }
-  .header .header__wrapper {
+  .main-menu__wrapper {
     display: flex; }
-  .header__logo {
+  .main-menu__logo {
     padding-top: 25px;
     padding-bottom: 35px;
     min-height: 90px; }
@@ -391,6 +396,9 @@ img {
 
 .nav__item--login {
   position: relative; }
+
+.nav__item--active .nav__link {
+  color: #2c36f2; }
 
 .nav__icon--login {
   position: absolute;
@@ -421,6 +429,83 @@ img {
 .logo {
   display: block;
   box-sizing: border-box; }
+
+.credit-promo {
+  display: flex;
+  position: relative;
+  min-height: 400px;
+  background-color: #2c36f2;
+  background-image: linear-gradient(to right, transparent calc(50% - 450px), #2c36f2 calc(50% - 450px), #2c36f2 calc(50% + 450px), transparent calc(50% + 450px)), linear-gradient(180deg, rgba(32, 39, 179, 0) 33%, #2027b3 100%); }
+  .credit-promo::before {
+    z-index: 0;
+    position: absolute;
+    left: calc(50% - 300px - 150px);
+    bottom: 0;
+    content: "";
+    background-image: linear-gradient(183.47deg, rgba(56, 65, 255, 0) 66%, #3841ff 100%);
+    width: 150px;
+    height: 269px; }
+  .credit-promo::after {
+    z-index: 0;
+    position: absolute;
+    right: calc(50% - 450px);
+    bottom: 0;
+    content: "";
+    background-image: linear-gradient(183.47deg, rgba(56, 65, 255, 0) 27%, #3841ff 100%);
+    width: 270px;
+    height: 269px; }
+  .credit-promo__wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+  .credit-promo__column-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 108px;
+    padding-left: 250px; }
+  .credit-promo__title {
+    order: 1;
+    margin: 0;
+    margin-bottom: 40px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #f6f7ff; }
+  .credit-promo__brand {
+    order: 0;
+    margin-bottom: 14px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 54px;
+    line-height: 63px;
+    font-weight: 700;
+    color: #f6f7ff; }
+  .credit-promo__button {
+    order: 1;
+    display: block;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-right: auto;
+    background-color: #f6f7ff;
+    border-radius: 4px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1f1e25; }
+    .credit-promo__button:hover, .credit-promo__button:focus {
+      color: #2c36f2;
+      box-shadow: 0 11px 40px -7px #690c79;
+      transition-duration: 0.3s; }
+    .credit-promo__button:active {
+      background-color: #707c87; }
+  .credit-promo__image-wrapper {
+    position: relative;
+    z-index: 1;
+    padding-top: 65px;
+    padding-left: 95px; }
 
 .footer {
   display: flex;

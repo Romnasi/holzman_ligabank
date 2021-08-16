@@ -2,14 +2,14 @@ import React from 'react';
 import Header from '../header/header';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from '../footer/footer';
+import Main from '../main/main';
 
 function App () {
   return (
     <Router>
       <Header />
 
-      <main className='page__main main'>
-      </main>
+      <Main />
 
       <Footer />
     </Router>

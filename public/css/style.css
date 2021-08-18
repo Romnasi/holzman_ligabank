@@ -722,11 +722,19 @@ img {
   font-size: 28px;
   line-height: 39px; }
 
+.history__empty-text {
+  display: block;
+  padding-bottom: 10px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px; }
+
 .history__list {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 246px;
+  grid-column-gap: 140px;
   margin: 0;
   margin-bottom: 50px;
   padding: 0;
@@ -742,11 +750,27 @@ img {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
 
 .history__item {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.3fr 1.3fr;
+  grid-template-columns: 130px auto auto 1fr;
   margin-bottom: 30px; }
-  .history__item:last-child {
+  .history__item:nth-last-child(-n+2) {
     margin-bottom: 0; }
+
+.history__date,
+.history__input,
+.history__output {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #1f1e25; }
+
+.history__input {
+  padding-right: 13px; }
+
+.history__output {
+  padding-left: 13px; }
 
 .history__button {
   grid-column-start: 2;

@@ -22,12 +22,23 @@
   line-height: 39px;
 }
 
+.history__empty-text {
+  display: block;
+
+  padding-bottom: 10px;
+
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+}
+
 .history__list {
   position: relative;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 123px * 2;
+  grid-column-gap: 70px * 2;
 
   margin: 0;
   margin-bottom: 50px;
@@ -50,13 +61,33 @@
 }
 
 .history__item {
+  position: relative;
+
   display: grid;
-  grid-template-columns: 1fr 1.3fr 1.3fr;
+  grid-template-columns: 130px auto auto 1fr;
   margin-bottom: 30px;
 
-  &:last-child {
+  &:nth-last-child(-n+2) {
     margin-bottom: 0;
   }
+}
+
+.history__date,
+.history__input,
+.history__output {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: $basic-black;
+}
+
+.history__input {
+  padding-right: 13px;
+}
+
+.history__output {
+  padding-left: 13px;
 }
 
 .history__button {

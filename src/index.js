@@ -21,7 +21,7 @@ const store = configureStore({
     }).concat(redirect),
 });
 
-// store.dispatch(fetchCurrencies());
+store.dispatch(fetchCurrencies());
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,92 +1,41 @@
 import React from 'react';
+import HistoryList from '../history-list/history-list';
+
+const mockHistoryItems = [
+  {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}, {id: 9}, {id: 10},
+];
+
 
 function History() {
+  const isEmpty = mockHistoryItems.length === 0;
+
   return (
     <section className='main__history history container'>
       <h2 className='history__title'>История конвертаций</h2>
 
-      <ul className='history__list'>
-        <li className='history__item'>
-          <time
-            className='history__date'
-            dateTime='2020-11-25'
-          >
-            25.11.2020
-          </time>
-          <span
-            className='history__input'
-          >
-            1000 RUB
+      {
+        isEmpty
+          ?
+          <span className='history__empty-text'>
+            В история конвертаций нет записей
           </span>
-          <span
-            className='history__output'
-          >
-            13,1234 USD
-          </span>
-        </li><li className='history__item'>
-          <time
-            className='history__date'
-            dateTime='2020-11-25'
-          >
-            25.11.2020
-          </time>
-          <span
-            className='history__input'
-          >
-            1000 RUB
-          </span>
-          <span
-            className='history__output'
-          >
-            13,1234 USD
-          </span>
-        </li>
+          :
+          <HistoryList
+            historyItems={mockHistoryItems}
+          />
+      }
 
-        <li className='history__item'>
-          <time
-            className='history__date'
-            dateTime='2020-11-25'
-          >
-            25.11.2020
-          </time>
-          <span
-            className='history__input'
-          >
-            1000 RUB
-          </span>
-          <span
-            className='history__output'
-          >
-            13,1234 USD
-          </span>
-        </li>
-
-        <li className='history__item'>
-          <time
-            className='history__date'
-            dateTime='2020-11-25'
-          >
-            25.11.2020
-          </time>
-          <span
-            className='history__input'
-          >
-            1000 RUB
-          </span>
-          <span
-            className='history__output'
-          >
-            13,1234 USD
-          </span>
-        </li>
-
-      </ul>
-      <button
-        className='history__button history__button--clear'
-        type='button'
-      >
-        Очистить историю
-      </button>
+      {
+        !isEmpty
+        &&
+        <button
+          className='history__button history__button--clear'
+          type='button'
+          disabled={isEmpty}
+        >
+          Очистить историю
+        </button>
+      }
     </section>
   );
 }

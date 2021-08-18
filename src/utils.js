@@ -2,10 +2,14 @@ import fx from 'money';
 
 const DEFAULT_BASE = 'USD';
 
-export const convertCurrency = (value, rates, from, to, base = DEFAULT_BASE) => {
-  fx.base = base;
+export const convertCurrency = (value, rates, from, to, ratesBase = DEFAULT_BASE) => {
+  fx.base = ratesBase;
   fx.rates = rates;
 
-  const result = fx.convert(value, {from, to});
+  let result = fx.convert(value, {from, to});
+
+  if (result % 1 !== 0) {
+    result = result.toFixed(4);
+  }
   return result;
 };

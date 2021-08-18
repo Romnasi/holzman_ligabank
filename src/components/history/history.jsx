@@ -1,13 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getHistoryItems } from '../../store/data/selectors';
 import HistoryList from '../history-list/history-list';
-
-const mockHistoryItems = [
-  {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}, {id: 9}, {id: 10},
-];
 
 
 function History() {
-  const isEmpty = mockHistoryItems.length === 0;
+  const historyItems = useSelector(getHistoryItems);
+  const isEmpty = historyItems.length === 0;
 
   return (
     <section className='main__history history container'>
@@ -17,11 +16,11 @@ function History() {
         isEmpty
           ?
           <span className='history__empty-text'>
-            В история конвертаций нет записей
+            В история конвертаций пока нет записей
           </span>
           :
           <HistoryList
-            historyItems={mockHistoryItems}
+            historyItems={historyItems}
           />
       }
 

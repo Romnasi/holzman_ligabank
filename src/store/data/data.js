@@ -6,6 +6,7 @@ import {
 import { createReducer } from '@reduxjs/toolkit';
 
 const initialState = {
+  historyItems: [],
   currentValueRUB: 1000,
   currencies: {},
   historyCurrencies: [],

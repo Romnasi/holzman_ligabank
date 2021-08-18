@@ -2,82 +2,88 @@
   position: relative;
   display: flex;
   flex-direction: column;
+}
 
-  &__button {
-    position: relative;
-    z-index: 1;
-    display: block;
+.currency-picker__button {
+  position: relative;
+  z-index: 2;
+  display: block;
 
-    margin-top: auto;
+  width: 120px;
 
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 18px;
-    padding-right: 45px;
-    cursor: pointer;
+  margin-top: auto;
 
-    background-color: $light-background;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 18px;
+  padding-right: 45px;
+  cursor: pointer;
 
-    border: 1px solid $basic-black;
-    box-sizing: border-box;
-    border-radius: 4px;
+  background-color: $basic-white;
+
+  border: 1px solid $basic-black;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.currency-picker__caption {
+  font-family: $main-font;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.currency-picker__icon-arrow {
+  position: absolute;
+  right: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.currency-picker__list {
+  z-index: 1;
+  position: absolute;
+  top: calc(100% - 2px);
+  display: none;
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none;
+  background-color: $light-background;
+
+  border: 1px solid $basic-black;
+  border-top-color: transparent;
+  border-radius: 0 0 4px 4px;
+}
+
+.currency-picker__btn-currency {
+  display: block;
+
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+
+  font-family: $main-font;
+  font-size: 30px;
+  line-height: 42px;
+
+  &--active {
+    background-color: $accent-color;
+    color: $light-background;
   }
 
-  &__caption {
-    font-family: $main-font;
-    font-size: 30px;
-    line-height: 42px;
+  &:hover:not(.currency-picker__btn-currency--active) {
+    background-color: $basic-grey;
   }
+}
 
-  &__icon-arrow {
-    position: absolute;
-    right: 17px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+.currency-picker__button--active ~ .currency-picker__list {
+  display: block;
+}
 
-  &__list {
-    z-index: 0;
-    position: absolute;
-    top: calc(100% - 2px);
-    display: none;
-
-    margin: 0;
-    padding: 0;
-
-    width: 100%;
-    box-sizing: border-box;
-    list-style: none;
-    background-color: $light-background;
-
-    border: 1px solid $basic-black;
-    border-top-color: transparent;
-    border-radius: 0 0 4px 4px;
-  }
-
-  &__btn-currency {
-    display: block;
-
-    cursor: pointer;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-
-    font-family: $main-font;
-    font-size: 30px;
-    line-height: 42px;
-
-    &--active {
-      background-color: $accent-color;
-      color: $light-background;
-    }
-
-    &:hover:not(.currency-picker__btn-currency--active) {
-      background-color: $basic-grey;
-    }
-  }
-
-  &__button--active ~ &__list {
-    display: block;
-  }
+.currency-picker__button--active .currency-picker__icon-arrow {
+  transform: rotate(180deg) translateY(50%);
 }

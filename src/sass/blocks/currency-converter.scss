@@ -4,134 +4,152 @@
 
   padding-top: 65px;
   padding-bottom: 100px;
+}
 
-  &__title {
-    margin: 0;
-    margin-bottom: 70px;
+.currency-converter__title {
+  margin: 0;
+  margin-bottom: 70px;
 
-    font-family: $main-font;
-    font-weight: 700;
-    font-size: 41px;
-    line-height: 57px;
-    color: $basic-black;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 57px;
+  color: $basic-black;
+}
+
+.currency-converter__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.currency-converter__fieldset {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.currency-converter__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 120px;
+  grid-row-gap: 85px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.currency-converter__item {
+  position: relative;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: end;
+}
+
+.currency-converter__label {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  margin-bottom: 30px;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.currency-converter__control {
+  margin-right: 15px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  box-sizing: border-box;
+  width: 390px;
+  max-height: 62px;
+
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+
+  text-align: center;
+  background-color: $basic-white;
+
+  border: 1px solid $basic-black;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: $light-background;
   }
+}
 
-  &__form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.currency-converter__icon {
+  &--convert {
+    position: absolute;
+    right: -85px;
+    bottom: 10px;
   }
+}
 
-  &__fieldset {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
+.currency-converter__button {
+  &--calendar {
+    position: absolute;
+    right: 137px;
 
-    margin: 0;
-    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+
+    cursor: pointer;
+    background-color: transparent;
     border: none;
   }
 
-  &__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 120px;
-    grid-row-gap: 85px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-  }
-
-  &__item {
-    position: relative;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-self: end;
-  }
-
-  &__label {
-    grid-column-start: 1;
+  &--save {
+    grid-column-start: 2;
     grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 
-    margin-bottom: 30px;
-    font-family: $main-font;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 31px;
-  }
+    display: block;
 
-  &__control {
-    margin-right: 15px;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 30px;
+    padding-right: 30px;
 
+    padding-top: 19px;
+    padding-bottom: 18px;
+    margin-left: 60px;
     box-sizing: border-box;
-    width: 390px;
-    max-height: 62px;
 
     font-family: $main-font;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 34px;
+    font-size: 18px;
+    line-height: 25px;
+    color: $light-background;
 
-    text-align: center;
-    background-color: $light-background;
-
-    border: 1px solid $basic-black;
+    background-color: $accent-color;
     border-radius: 4px;
-  }
+    border: none;
 
-  &__button {
-    &--calendar {
-      position: absolute;
-      right: 137px;
+    transition-duration: 0.6s;
 
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 6px;
-      padding-bottom: 5px;
-
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
+    &:hover:not(:disabled) {
+      background-color: $gradient-dark-2;
+      box-shadow: 0 11px 40px -7px $gradient-dark-2;
+      transition-duration: 0.6s;
     }
 
-    &--save {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 3;
-
-      display: block;
-
-      padding-left: 30px;
-      padding-right: 30px;
-
-      padding-top: 19px;
-      padding-bottom: 18px;
-      margin-left: 60px;
-      box-sizing: border-box;
-
-      font-family: $main-font;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 25px;
-      color: $light-background;
-
-      background-color: $accent-color;
-      border-radius: 4px;
-      border: none;
-
-      &:hover {
-        background-color: $gradient-dark-2;
-        box-shadow: 0 11px 40px -7px $gradient-dark-2;
-        transition-duration: 0.6s;
-      }
+    &:disabled {
+      background-color: $basic-grey;
     }
   }
 }

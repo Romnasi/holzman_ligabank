@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
-import {currencies} from '../../const';
+import React, { useState, useCallback } from 'react';
+import { currencies } from '../../const';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-
-const defaultLabel = {
-  input: 'RUB',
-  output: 'USD',
-};
+import {
+  changeInputCurrency, changeOutputCurrency
+} from '../../store/action';
 
 
-function CurrencyPicker({fieldType}) {
+function CurrencyPicker({ pickerCurrency, fieldType }) {
   const [isOpened, setIsOpened] = useState(false);
 
-  const currentLabel = defaultLabel[fieldType];
+  const dispatch = useDispatch();
+  const onChangeInputCurrency = useCallback((currency) => dispatch(changeInputCurrency(currency)), [dispatch]);
+  const onChangeOutputCurrency = useCallback((currency) => dispatch(changeOutputCurrency(currency)), [dispatch]);
 
-  const handleBtnCurrencyChange = () => {
+  const currentLabel = pickerCurrency;
+
+  const handleBtnCurrencyClick = () => {
     setIsOpened((prevState) => !prevState);
   };
+
 
   return (
     <div className='currency-picker'>
       <button
-        onClick={() => handleBtnCurrencyChange()}
+        onClick={() => handleBtnCurrencyClick()}
         className={`currency-picker__button ${isOpened && 'currency-picker__button--active'}`}
         type='button'
       >
@@ -46,6 +50,15 @@ function CurrencyPicker({fieldType}) {
               title={caption}
             >
               <button
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  if (fieldType === 'input') {
+                    onChangeInputCurrency(label);
+                  } else {
+                    onChangeOutputCurrency(label);
+                  }
+                  setIsOpened((prevState) => !prevState);
+                }}
                 className={`currency-picker__btn-currency ${isActive && 'currency-picker__btn-currency--active'}`}
                 type='button'
               >
@@ -60,6 +73,7 @@ function CurrencyPicker({fieldType}) {
 }
 
 CurrencyPicker.propTypes = {
+  pickerCurrency: PropTypes.string,
   fieldType: PropTypes.string,
 };
 

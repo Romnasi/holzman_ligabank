@@ -1,14 +1,17 @@
 .legal-address {
+  display: flex;
+  flex-direction: column;
+
   padding-right: 45px;
+}
 
-  &__logo {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+.legal-address__logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-  &__text {
-    margin: 0;
+.legal-address__text {
+  margin: 0;
 
-    @include footer-desc();
-  }
+  @include footer-desc();
 }

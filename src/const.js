@@ -16,7 +16,7 @@ export const currencies = [
   },
   {
     id: 'gbr',
-    label: 'GBR',
+    label: 'GBP',
     caption: 'Фунт стерлингов',
   },
   {
@@ -35,4 +35,9 @@ export const FIELD = {
     TYPE: 'output',
     LABEL: 'Хочу приобрести',
   },
+};
+
+export const APIRoute = {
+  LATEST: 'latest.json?',
+  HISTORICAL: 'historical/',
 };

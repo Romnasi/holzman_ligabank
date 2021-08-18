@@ -38,83 +38,82 @@
     width: 270px;
     height: 269px;
   }
+}
 
-  &__wrapper {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.credit-promo__wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.credit-promo__column-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 108px;
+  padding-left: 250px;
+}
+
+.credit-promo__title {
+  order: 1;
+  margin: 0;
+  margin-bottom: 40px;
+
+  font-family: $main-font;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: $light-background;
+}
+
+.credit-promo__brand {
+  order: 0;
+
+  margin-bottom: 14px;
+
+  font-family: $main-font;
+  font-size: 54px;
+  line-height: 63px;
+  font-weight: 700;
+  color: $light-background;
+}
+
+.credit-promo__button {
+  order: 1;
+  display: block;
+
+  margin-right: auto;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  background-color: $light-background;
+  border-radius: 4px;
+
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: $basic-black;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    box-shadow: 0 11px 40px -7px $button-hover-shadow;
+    transition-duration: 0.3s;
   }
 
-  &__column-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 108px;
-    padding-left: 250px;
-  }
-
-  &__title {
-    order: 1;
-    margin: 0;
-    margin-bottom: 40px;
-
-    font-family: $main-font;
-    font-size: 22px;
-    line-height: 26px;
-    font-weight: 400;
-    color: $light-background;
-  }
-
-  &__brand {
-    order: 0;
-
-    margin-bottom: 14px;
-
-    font-family: $main-font;
-    font-size: 54px;
-    line-height: 63px;
-    font-weight: 700;
-    color: $light-background;
-  }
-
-  &__button {
-    order: 1;
-    display: block;
-    padding-left: 36px;
-    padding-right: 36px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-
-    margin-right: auto;
-
-    background-color: $light-background;
-    border-radius: 4px;
-
-    font-family: $main-font;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    color: $basic-black;
-
-    &:hover,
-    &:focus {
-      color: $accent-color;
-      box-shadow: 0 11px 40px -7px $button-hover-shadow;
-      transition-duration: 0.3s;
-    }
-
-    &:active {
-      background-color: $basic-grey;
-    }
-  }
-
-  &__image-wrapper {
-    position: relative;
-    z-index: 1;
-
-
-    padding-top: 65px;
-    padding-left: 95px;
+  &:active {
+    background-color: $basic-grey;
   }
 }
 
+.credit-promo__image-wrapper {
+  position: relative;
+  z-index: 1;
+
+
+  padding-top: 65px;
+  padding-left: 95px;
+}

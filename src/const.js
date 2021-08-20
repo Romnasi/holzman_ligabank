@@ -38,6 +38,6 @@ export const FIELD = {
 };
 
 export const APIRoute = {
-  LATEST: 'latest.json?',
+  LATEST: 'latest',
   HISTORICAL: 'historical/',
 };

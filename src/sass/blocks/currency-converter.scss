@@ -81,13 +81,13 @@
   line-height: 34px;
 
   text-align: center;
-  background-color: $basic-white;
+  background-color: transparent;
 
   border: 1px solid $basic-black;
   border-radius: 4px;
 
   &:hover {
-    background-color: $light-background;
+    background-color: transparentize($light-background, 0.6);
   }
 }
 
@@ -96,6 +96,22 @@
     position: absolute;
     right: -85px;
     bottom: 10px;
+  }
+
+  &--calendar {
+    position: absolute;
+    z-index: -1;
+
+    right: 137px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 }
 

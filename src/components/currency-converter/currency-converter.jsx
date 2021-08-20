@@ -1,15 +1,35 @@
 import React from 'react';
 import CurrencyItem from '../currency-item/currency-item';
 import { FIELD } from '../../const';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getInputCurrency, getOutputCurrency } from '../../store/ui/selectors';
-import { getDataLoadedStatus } from '../../store/data/selectors';
+import { getDataLoadedStatus, getCurrentDate, getCurrentValueRUB, getRates } from '../../store/data/selectors';
+import DatePicker from '../date-picker/date-picker';
+import { nanoid } from 'nanoid';
+import { updateHistoryItems } from '../../store/action';
 
 
 function CurrencyConverter() {
   const inputCurrency = useSelector(getInputCurrency);
   const outputCurrency = useSelector(getOutputCurrency);
   const dataLoadedStatus = useSelector(getDataLoadedStatus);
+  const currentDate = useSelector(getCurrentDate);
+  const currentValueRUB = useSelector(getCurrentValueRUB);
+  const rates = useSelector(getRates);
+  const dispatch = useDispatch();
+
+  const onButtonSaveClick = () => {
+    const historyItem = {
+      id: nanoid(),
+      date: currentDate,
+      currentValueRUB,
+      inputCurrency,
+      outputCurrency,
+      rates,
+    };
+    dispatch(updateHistoryItems(historyItem));
+  };
+
 
   return (
     <section className='main__currency-converter currency-converter container'>
@@ -46,23 +66,9 @@ function CurrencyConverter() {
             </li>
 
             <li className='currency-converter__item'>
-              <label className='visually-hidden' htmlFor="">Дата курса</label>
-              <input
-                type="text"
-                className='currency-converter__control currency-converter__control--date'
-              />
-              <button
-                className='currency-converter__button currency-converter__button--calendar'
-                type='button'
-              >
-                <svg
-                  className='currency-converter__icon currency-converter__icon--calendar'
-                  width='41'
-                  height='44'
-                >
-                  <use xlinkHref='#icon-calendar' />
-                </svg>
-              </button>
+
+              <DatePicker />
+
             </li>
           </ul>
         </fieldset>
@@ -71,6 +77,7 @@ function CurrencyConverter() {
           className='currency-converter__button currency-converter__button--save'
           type='button'
           disabled={!dataLoadedStatus}
+          onClick={onButtonSaveClick}
         >
             Сохранить результат
         </button>

@@ -4,6 +4,8 @@ const sourcemap = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
 
 // Styles
 
@@ -16,7 +18,9 @@ const styles = () => gulp.src('src/sass/style.scss')
   ]))
   .pipe(sourcemap.write('.'))
   .pipe(gulp.dest('public/css'))
-
+  .pipe(csso())
+  .pipe(rename('style.min.css'))
+  .pipe(gulp.dest('public/css'));
 exports.styles = styles;
 
 

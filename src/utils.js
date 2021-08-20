@@ -1,4 +1,5 @@
 import fx from 'money';
+import dayjs from 'dayjs';
 
 const DEFAULT_BASE = 'USD';
 
@@ -13,3 +14,7 @@ export const convertCurrency = (value, rates, from, to, ratesBase = DEFAULT_BASE
   }
   return result;
 };
+
+
+export const toShortISO = (date) => dayjs(date).format('YYYY-MM-DD');
+export const toFormatWithDots = (date) => dayjs(date).format('D.MM.YYYY');

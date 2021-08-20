@@ -64,11 +64,21 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: 130px auto auto 1fr;
+  grid-template-columns: 130px 1fr 1fr;
   margin-bottom: 30px;
 
   &:nth-last-child(-n+2) {
     margin-bottom: 0;
+  }
+}
+
+.history__wrapper {
+  position: relative;
+}
+
+.history__icon {
+  &--arrow {
+    position: absolute;
   }
 }
 
@@ -80,6 +90,7 @@
   font-size: 18px;
   line-height: 23px;
   color: $basic-black;
+  word-break: break-all;
 }
 
 .history__input {

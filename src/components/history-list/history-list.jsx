@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { toFormatWithDots, convertCurrency } from '../../utils';
 
+const DEFAULT_FROM = 'RUB';
 
 function HistoryList({ historyItems }) {
 
@@ -9,33 +11,37 @@ function HistoryList({ historyItems }) {
     <ul className='history__list'>
 
       {
-        historyItems.map(({id}) => {
+        historyItems.map(({id, date, currentValueRUB, inputCurrency, outputCurrency, rates}) => {
           const keyValue = id;
           return (
             <li key={keyValue} className='history__item'>
               <time
                 className='history__date'
-                dateTime='2020-11-25'
+                dateTime={date}
               >
-                25.11.2020
+                {toFormatWithDots(date)}
               </time>
-              <span
-                className='history__input'
-              >
-                1000 RUB
-              </span>
 
-              <svg
-                className='history__icon history__icon--arrow'
-                width='41'
-                height='18'
-              >
-                <use xlinkHref='#icon-arrow-right' />
-              </svg>
+              <div className='history__wrapper'>
+                <span
+                  className='history__input'
+                >
+                  {`${convertCurrency(currentValueRUB, rates, DEFAULT_FROM, inputCurrency)} ${inputCurrency}`}
+                </span>
+
+                <svg
+                  className='history__icon history__icon--arrow'
+                  width='41'
+                  height='18'
+                >
+                  <use xlinkHref='#icon-arrow-right' />
+                </svg>
+              </div>
+
               <span
                 className='history__output'
               >
-                13,1234 USD
+                {`${convertCurrency(currentValueRUB, rates, DEFAULT_FROM, outputCurrency)} ${outputCurrency}`}
               </span>
             </li>
           );

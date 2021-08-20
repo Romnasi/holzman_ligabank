@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { createAPI } from './services/api';
 import App from './components/app/app';
 import rootReducer from './store/root-reducer';
-import { fetchCurrencies } from './store/api-actions';
+import { fetchTodayRates } from './store/api-actions';
 import { Provider } from 'react-redux';
 import { redirect } from './store/middlewares/redirect';
 
@@ -21,7 +21,7 @@ const store = configureStore({
     }).concat(redirect),
 });
 
-store.dispatch(fetchCurrencies());
+store.dispatch(fetchTodayRates());
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,45 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { siteLinks } from '../../const';
 
 
 function SiteLinks() {
   return(
     <div className='footer__site-links site-links'>
       <ul className='site-links__list'>
-        <li className='site-links__item'>
-          <Link
-            className='site-links__link'
-            to="#"
-          >
-            Услуги
-          </Link>
-        </li>
-        <li className='site-links__item'>
-          <Link
-            className='site-links__link'
-            to="#"
-          >
-            Рассчитать кредит
-          </Link>
-        </li>
 
-        <li className='site-links__item'>
-          <Link
-            className='site-links__link'
-            to="#"
-          >
-            Контакты
-          </Link>
-        </li>
+        {
+          siteLinks.map(({ id, caption }) => (
+            <li key={id} className={`site-links__item site-links__item--${id}`}>
+              <Link
+                className={`site-links__link site-links__link--${id}`}
+                to="#"
+              >
+                {caption}
+              </Link>
+            </li>
+          ))
+        }
 
-        <li className='site-links__item'>
-          <Link
-            className='site-links__link'
-            to="#"
-          >
-            Задать вопрос
-          </Link>
-        </li>
       </ul>
     </div>
   );
